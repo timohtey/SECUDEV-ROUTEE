@@ -20,7 +20,14 @@
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDQFSdn0OTS5bgEVYvfGMBWmkC54uk-6PM&sensor=false&libraries=places&region=ph"></script>                
         <script type="text/javascript" src="js/jquery.qtip.js"></script>
         <script type="text/javascript" src="js/jquery.imagesloaded.pkg.min.js"></script>
-
+        
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#btnBack").click(function(){
+                    document.location.href="index.php";
+                });
+            });
+        </script>
     </head>
 
 
@@ -38,17 +45,24 @@
                     <p align = "center"> Please complete this form to proceed </p>
                     <br>
                     <form method = "POST" id = "regform" action = "go.php">
-                        <input name ="regUser" id = "regUserText" type = "text" class = "form-control" placeholder = "Desired Username">
+                        <input name ="regUser" id = "regUserText" type = "text" class = "form-control" placeholder = "Username">
                         <br/>
-                        <input name = "regPass" id = "regPassText" type = "password" class = "form-control" placeholder = "Desired Password">
+                        <input name = "regPass" id = "regPassText" type = "password" class = "form-control" placeholder = "Password">
                         <br/>
-                        <input name = "regMail" id = "regMailText" type = "text" class = "form-control" placeholder = "Your Email here">
+                        <input name = "regMail" id = "regMailText" type = "text" class = "form-control" placeholder = "Email Address">
                         <br/>
                         <div class="btn-group btn-group-justified">
                             <div class="btn-group">
-                                <button type="submit" class="btn btn-danger" id = "btnConf"><i class="fa fa-check"> </i> Complete Registration</button>
+                                <button type="submit" class="btn btn-danger" id = "btnConf"><i class="fa fa-check"> </i> Register</button>
                             </div>
                         </div>
+                        <div class="btn-group btn-group-justified">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info" id = "btnBack"></i> Back</button>
+                            </div>
+                        </div>
+
+
                     </form>
                 </div>
             </div>
