@@ -28,6 +28,77 @@
                 });
             });
         </script>
+
+        <script>
+
+            function RegistrationErrorHandlers() {
+                var email = $(document).getElementById('regMailText');
+                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                alert(re.test(email));
+                document.getElementById("regform").onsubmit = function() {
+
+                    if (document.getElementById("regUserText").value === "")
+                        {
+                            $('#regUserText').qtip({
+                                prerender: true,
+                                content: {
+                                    text: "Please enter a username."
+                                },
+                                position: {
+                                    my: 'bottom right',
+                                    at: 'top left',
+                                    target: $('#regUserText'),
+                                    viewport: $(window)
+                                },
+                                show: {
+                                    ready: true
+                                },
+                                hide: {
+                                    event: false,
+                                    inactive: 4000
+                                }
+
+                            });
+                        }
+                        if (document.getElementById("regPassText").value === "")
+                        {
+                            $('#regPassText').qtip({
+                                prerender: true,
+                                content: {
+                                    text: "Please enter a password."
+                                },
+                                position: {
+                                    my: 'bottom right',
+                                    at: 'top left',
+                                    target: $('#regPassText'),
+                                    viewport: $(window)
+                                },
+                                show: {
+                                    ready: true
+                                },
+                                hide: {
+                                    event: false,
+                                    inactive: 4000
+                                }
+
+                            });
+                        }
+                        return false;
+                    }
+                };
+            }
+
+            // function validateEmail() {
+            //     var email = $(document).getElementById('regMailText');
+            //     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            //     alert(re.test(email));
+            // }
+
+            window.onload = function() {
+                RegistrationErrorHandlers();
+            };
+    </script>
+
     </head>
 
 
@@ -44,7 +115,7 @@
                     <br>
                     <p align = "center"> Please complete this form to proceed </p>
                     <br>
-                    <form method = "POST" id = "regform" action = "go.php">
+                    <form method = "POST" id = "regform" action = "index.php">
                         <input name ="regUser" id = "regUserText" type = "text" class = "form-control" placeholder = "Username">
                         <br/>
                         <input name = "regPass" id = "regPassText" type = "password" class = "form-control" placeholder = "Password">
@@ -61,8 +132,6 @@
                                 <button type="button" class="btn btn-info" id = "btnBack"></i> Back</button>
                             </div>
                         </div>
-
-
                     </form>
                 </div>
             </div>

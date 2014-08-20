@@ -38,13 +38,13 @@
                 });
             });
 
-            $(document).ready(function() {
-                $("#btnLogin").click(function() {
-                    $("#login").fadeOut("fast", function() {
-                        $("#memonly").fadeIn("5000");
-                    });
-                });
-            });
+            // $(document).ready(function() {
+            //     $("#btnLogin").click(function() {
+            //         $("#login").fadeOut("fast", function() {
+            //             $("#memonly").fadeIn("5000");
+            //         });
+            //     });
+            // });
         </script>
 
         <script>
@@ -242,7 +242,63 @@
                 };
 
             }
+            function LoginErrorHandlers() {
+                document.getElementById("loginform").onsubmit = function() {
+                    if (document.getElementById("loginUserText").value === "" || document.getElementById("loginPassText").value === "") {
+                        if (document.getElementById("loginUserText").value === "")
+                        {
+                            $('#loginUserText').qtip({
+                                prerender: true,
+                                content: {
+                                    text: "Please enter username."
+                                },
+                                position: {
+                                    my: 'bottom right',
+                                    at: 'top left',
+                                    target: $('#loginUserText'),
+                                    viewport: $(window)
+                                },
+                                show: {
+                                    ready: true
+                                },
+                                hide: {
+                                    event: false,
+                                    inactive: 4000
+                                }
+
+                            });
+                        }
+
+                        if (document.getElementById("loginPassText").value === "")
+                        {
+                            $('#loginPassText').qtip({
+                                prerender: true,
+                                content: {
+                                    text: "Please enter password"
+                                },
+                                position: {
+                                    my: 'bottom right',
+                                    at: 'top left',
+                                    target: $('#loginPassText'),
+                                    viewport: $(window)
+                                },
+                                show: {
+                                    ready: true
+                                },
+                                hide: {
+                                    event: false,
+                                    inactive: 4000
+                                }
+
+                            });
+                        }
+                        return false;
+                    }
+                };
+
+            }
             window.onload = function() {
+                LoginErrorHandlers();
                 ReportingErrorHandlers();
                 RoutingErrorHandlers();
             };
@@ -274,7 +330,7 @@
                         <h2 align = "center"> Welcome, Router! </h2>
                         <p align = "center"> Please enter your username and password to be able to report! </p>
                         <br/>
-                        <form method = "POST" id = "loginform" action = "">
+                        <form method = "POST" id = "loginform" action = "index.php">
                             <input name ="loginUser" id = "loginUserText" type = "text" class = "form-control" placeholder = "Username">
                             <br/>
                             <input name = "loginPass" id = "loginPassText" type = "text" class = "form-control" placeholder = "Password">
