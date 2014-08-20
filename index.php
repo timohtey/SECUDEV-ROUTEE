@@ -246,6 +246,10 @@
                         <div class="btn-group btn-group-justified">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-info" id = "btnReporting"><i class="fa fa-map-marker"> </i> Reporting</button>
+                                <br/>
+                                <form method ="POST" id="regForm" action="register.php">
+                                    <button type="submit" class="btn btn-danger" id = "btnRegister"><i class ="fa fa-check"> </i> Sign in </button>
+                                </form>                           
                             </div>
                         </div>
                     </div> <!--dissidia routing-->

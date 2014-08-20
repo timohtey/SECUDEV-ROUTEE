@@ -22,6 +22,30 @@
         <script type="text/javascript" src="js/jquery.qtip.js"></script>
         <script type="text/javascript" src="js/jquery.imagesloaded.pkg.min.js"></script>
 
+         <script type="text/javascript">
+            $(document).ready(function() {
+                $("#btnRegister").click(function() {
+                    $("#login").fadeOut("fast", function() {
+                        $("#registration").fadeIn("5000");
+                    });
+                });
+            });
+
+            $(document).ready(function(){
+                $("#btnBack").click(function(){
+                    $("#registration").fadeOut("fast", function() {
+                        $("#login").fadeIn("5000");
+                    });
+                });
+            });
+
+            $(document).ready(function(){
+                $("#btnBack1").click(function(){
+                    document.location.href = "index.php";
+                });
+            });
+
+        </script>
     </head>
 
 
@@ -31,23 +55,43 @@
             <div class = "col-md-4">
                 <br>
             </div>
-
             <div class = "col-md-4">
-                <div class = "dissidia" id = "registration">
+                <div class = "dissidia" id = "login">
+                    <h2 align = "center"> Login </h2>
+                    <form method = "POST" id = "loginForm" action="index.php">
+                        <input name ="loginUser" id ="loginUserText" type ="text" class="form-control" placeholder="Usermame">
+                        <br/>
+                        <input name="loginPass" id="loginPassText" type ="password" class="form-control" placeholder="Password">
+                        <div class ="btn-group btn-group-justified">
+                            <div class ="btn-group">
+                                <button type="submit" class="btn btn-danger" id="btnLogin"><i class ="fa fa-check"> </i> Login</button>
+                                <br/>
+                                <br/>
+                                <button type="button" class="btn btn-danger" id="btnRegister"><i class ="fa fa-check"> </i> Register</button>
+                                <button type="button" class="btn btn-info" id="btnBack1"></i> Back</button>
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class = "dissidia" style="display:none;" id = "registration">
                     <h2 align = "center">Registration Form</h2>
                     <br>
-                    <p align = "center"> Please complete this form to proceed </p>
+                    <p align = "center"> Please complete this form to register </p>
                     <br>
                     <form method = "POST" id = "regform" action = "go.php">
-                        <input name ="regUser" id = "regUserText" type = "text" class = "form-control" placeholder = "Desired Username">
+                        <input name ="regUser" id = "regUserText" type = "text" class = "form-control" placeholder = "Username">
                         <br/>
-                        <input name = "regPass" id = "regPassText" type = "password" class = "form-control" placeholder = "Desired Password">
+                        <input name = "regPass" id = "regPassText" type = "password" class = "form-control" placeholder = "Password">
                         <br/>
-                        <input name = "regMail" id = "regMailText" type = "text" class = "form-control" placeholder = "Your Email here">
+                        <input name = "regMail" id = "regMailText" type = "text" class = "form-control" placeholder = "Email Address">
                         <br/>
                         <div class="btn-group btn-group-justified">
                             <div class="btn-group">
-                                <button type="submit" class="btn btn-danger" id = "btnConf"><i class="fa fa-check"> </i> Complete Registration</button>
+                                <button type="submit" class="btn btn-danger" id = "btnConf"><i class="fa fa-check"> </i> Register</button>
+                                <br/>
+                                <br/>
+                                <button type="button" class="btn btn-info" id="btnBack"> Back</button>
                             </div>
                         </div>
                     </form>
