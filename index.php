@@ -39,6 +39,7 @@
                 });
             });
 
+<<<<<<< HEAD
 
         </script>
         <script>
@@ -46,7 +47,7 @@
                 var sourceInput = document.getElementById('sourceSearchText');
                 var destinationInput = document.getElementById('destinationSearchText');
                 var eventInput = document.getElementById('eventSearchText');
-
+=======
             $(document).ready(function() {
                 $("#btnLogin").click(function() {
                     $("#login").fadeOut("fast", function() {
@@ -99,13 +100,16 @@
                 var sourceInput = document.getElementById('sourceSearchText');
                 var destinationInput = document.getElementById('destinationSearchText');
                 var eventInput = address;
+>>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                 var options = {
                     componentRestrictions: {country: "ph"}
                 };
                 var autocomplete = new google.maps.places.Autocomplete(sourceInput, options);
                 var autocomplete2 = new google.maps.places.Autocomplete(destinationSearchText, options);
-
+<<<<<<< HEAD
                 var autocomplete3 = new google.maps.places.Autocomplete(eventSearchText, options);
+=======
+>>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
 
                 autocomplete.bindTo('bounds', map);
                 autocomplete2.bindTo('bounds', map);
@@ -137,6 +141,10 @@
             }
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>        
+<<<<<<< HEAD
+=======
+
+>>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
         <script>
 
             function ReportingErrorHandlers() {
@@ -265,10 +273,12 @@
 
 
         <div class = "container">            
-            <div class = "row">          
+            <div class = "row">                
+<<<<<<< HEAD
                 <div class = "col-md-4 col-md-offset-1">
-
+=======
                 <div class = "col-md-4">
+>>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                     <h2 align="center" id = "me"><img src ="images/routee.png" align = "center"></h2>
                     <div class = "intros">                        
                         <h3 align="center" style="font-weight: bold;">Need some routing assistance?</h3>
@@ -278,8 +288,10 @@
                             This ignites the people's willingness to help inform their fellow drivers to avoid obstructions on the road.</p>                                                  
                     </div>
                 </div>
+<<<<<<< HEAD
                 <br/>
                 <div class = "col-md-5 col-md-offset-1">
+=======
 
                 <br/>
 
@@ -311,6 +323,7 @@
                 </div> <!-- end col-md-4 -->
                 
                 <div class = "col-md-4">
+>>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                     <div class = "dissidia" id="routing">
                         <h2 align = "center"> Routing </h2>
                         <p align = "center"> Routee will assist you in finding the best routes possible.</p>
@@ -327,25 +340,29 @@
                             </div>
 
                         </form>
+<<<<<<< HEAD
 
+=======
                         <div class = "panel" id ="memonly">
+>>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                         <hr class = "gdivider">
                         <p align = "center">If there is a situation going on, please do not hesitate to tell us.</p>
                         <div class="btn-group btn-group-justified">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-info" id = "btnReporting"><i class="fa fa-map-marker"> </i> Reporting</button>
-
+<<<<<<< HEAD
                                 <br/>
                                 <form method ="POST" id="regForm" action="register.php">
                                     <button type="submit" class="btn btn-danger" id = "btnRegister"><i class ="fa fa-check"> </i> Sign in </button>
                                 </form>                           
                             </div>
                         </div>
-
+=======
                             </div>
                         </div>
                         </div>
 
+>>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                     </div> <!--dissidia routing-->
                     <br/>
                     <div class ="dissidia" style  = "display:none;" id = "reporting">
@@ -361,8 +378,11 @@
                                 <option value="Others">Others</option>
                             </select>
                             <br/>
+<<<<<<< HEAD
                             <input name="placeName" type="text" id = "eventSearchText" class="form-control" placeholder="Where is it happening?" >
                             <br/>
+=======
+>>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                             <textarea id="description" name="pDesc" style = "width:100%;" placeholder="What's going on?" class="form-control"></textarea>
                             <br/>                            
                             <div class="btn-group btn-group-justified">
