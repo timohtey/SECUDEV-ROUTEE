@@ -22,7 +22,6 @@
         <script type="text/javascript" src="js/jquery.qtip.js"></script>
         <script type="text/javascript" src="js/jquery.imagesloaded.pkg.min.js"></script>
 
-<<<<<<< HEAD
          <script type="text/javascript">
             $(document).ready(function() {
                 $("#btnRegister").click(function() {
@@ -47,8 +46,6 @@
             });
 
         </script>
-=======
->>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
     </head>
 
 
@@ -58,7 +55,6 @@
             <div class = "col-md-4">
                 <br>
             </div>
-<<<<<<< HEAD
             <div class = "col-md-4">
                 <div class = "dissidia" id = "login">
                     <h2 align = "center"> Login </h2>
