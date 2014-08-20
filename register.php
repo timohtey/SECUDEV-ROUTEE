@@ -22,6 +22,7 @@
         <script type="text/javascript" src="js/jquery.qtip.js"></script>
         <script type="text/javascript" src="js/jquery.imagesloaded.pkg.min.js"></script>
 
+<<<<<<< HEAD
          <script type="text/javascript">
             $(document).ready(function() {
                 $("#btnRegister").click(function() {
@@ -46,6 +47,8 @@
             });
 
         </script>
+=======
+>>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
     </head>
 
 
@@ -55,6 +58,7 @@
             <div class = "col-md-4">
                 <br>
             </div>
+<<<<<<< HEAD
             <div class = "col-md-4">
                 <div class = "dissidia" id = "login">
                     <h2 align = "center"> Login </h2>
@@ -92,6 +96,25 @@
                                 <br/>
                                 <br/>
                                 <button type="button" class="btn btn-info" id="btnBack"> Back</button>
+=======
+
+            <div class = "col-md-4">
+                <div class = "dissidia" id = "registration">
+                    <h2 align = "center">Registration Form</h2>
+                    <br>
+                    <p align = "center"> Please complete this form to proceed </p>
+                    <br>
+                    <form method = "POST" id = "regform" action = "go.php">
+                        <input name ="regUser" id = "regUserText" type = "text" class = "form-control" placeholder = "Desired Username">
+                        <br/>
+                        <input name = "regPass" id = "regPassText" type = "password" class = "form-control" placeholder = "Desired Password">
+                        <br/>
+                        <input name = "regMail" id = "regMailText" type = "text" class = "form-control" placeholder = "Your Email here">
+                        <br/>
+                        <div class="btn-group btn-group-justified">
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-danger" id = "btnConf"><i class="fa fa-check"> </i> Complete Registration</button>
+>>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                             </div>
                         </div>
                     </form>

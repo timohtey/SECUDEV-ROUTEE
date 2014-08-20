@@ -39,7 +39,6 @@
                 });
             });
 
-<<<<<<< HEAD
 
         </script>
         <script>
@@ -47,69 +46,12 @@
                 var sourceInput = document.getElementById('sourceSearchText');
                 var destinationInput = document.getElementById('destinationSearchText');
                 var eventInput = document.getElementById('eventSearchText');
-=======
-            $(document).ready(function() {
-                $("#btnLogin").click(function() {
-                    $("#login").fadeOut("fast", function() {
-                        $("#memonly").fadeIn("5000");
-                    });
-                });
-            });
-        </script>
-
-        <script>
-                
-            var geocoder;
-            geocoder = new google.maps.Geocoder();
-
-            var a; 
-            var b;
-            var address;
-
-            function getLocation() {
-                if (navigator.geolocation) {
-                    alert("pasok");
-                    navigator.geolocation.getCurrentPosition(showPosition1);
-                    navigator.geolocation.getCurrentPosition(showPosition2);
-                    var latlng = new google.maps.LatLng(a, b);
-                    geocoder.geocode({'latLng': event.latLng}, function(results, status) {
-                        if (status === google.maps.GeocoderStatus.OK) {
-                            address = results[0].formatted_address;
-                        }
-                        else {
-                            alert("Geocoder failed due to: " + status);
-                        }
-                    });
-                } 
-
-                else { 
-                    alert("Geolocation is not supported by this browser.");
-                }
-            }
-
-            function showPosition1(position) {
-                x = position.coords.latitude;
-            }
-
-            function showPosition2(position) {
-                y = position.coords.longitude;    
-            }
-
-            function initialize() {
-
-                var sourceInput = document.getElementById('sourceSearchText');
-                var destinationInput = document.getElementById('destinationSearchText');
-                var eventInput = address;
->>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                 var options = {
                     componentRestrictions: {country: "ph"}
                 };
                 var autocomplete = new google.maps.places.Autocomplete(sourceInput, options);
                 var autocomplete2 = new google.maps.places.Autocomplete(destinationSearchText, options);
-<<<<<<< HEAD
                 var autocomplete3 = new google.maps.places.Autocomplete(eventSearchText, options);
-=======
->>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
 
                 autocomplete.bindTo('bounds', map);
                 autocomplete2.bindTo('bounds', map);
@@ -141,10 +83,6 @@
             }
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>        
-<<<<<<< HEAD
-=======
-
->>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
         <script>
 
             function ReportingErrorHandlers() {
@@ -274,11 +212,7 @@
 
         <div class = "container">            
             <div class = "row">                
-<<<<<<< HEAD
                 <div class = "col-md-4 col-md-offset-1">
-=======
-                <div class = "col-md-4">
->>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                     <h2 align="center" id = "me"><img src ="images/routee.png" align = "center"></h2>
                     <div class = "intros">                        
                         <h3 align="center" style="font-weight: bold;">Need some routing assistance?</h3>
@@ -288,42 +222,8 @@
                             This ignites the people's willingness to help inform their fellow drivers to avoid obstructions on the road.</p>                                                  
                     </div>
                 </div>
-<<<<<<< HEAD
                 <br/>
                 <div class = "col-md-5 col-md-offset-1">
-=======
-
-                <br/>
-
-                <div class = "col-md-4">
-                    <div class = "dissidia" id="login">
-                        <h2 align = "center"> Welcome, Router! </h2>
-                        <p align = "center"> Please enter your username and password to be able to report! </p>
-                        <br/>
-                        <form method = "POST" id = "loginform" action = "">
-                            <input name ="loginUser" id = "loginUserText" type = "text" class = "form-control" placeholder = "Username">
-                            <br/>
-                            <input name = "loginPass" id = "loginPassText" type = "text" class = "form-control" placeholder = "Password">
-                            <br/>
-                            <div class="btn-group btn-group-justified">
-                            <div class="btn-group">
-                                <button type="submit" class="btn btn-info" id = "btnLogin"><i class="fa fa-user"> </i> Login</button>
-                            </div>
-                        </div> <!-- end btn-group --> 
-                        </form>
-                        <form method = "POST" id = "registerform" action = "register.php">
-                            <div class="btn-group btn-group-justified">
-                            <div class="btn-group">
-                                <button type="submit" class="btn btn-primary" id = "btnRegister"><i class="fa fa-pencil"> </i> Register</button>
-                            </div>
-                        </div> <!-- end btn-group --> 
-                        </form>
-
-                    </div> <!-- end dissidia -->
-                </div> <!-- end col-md-4 -->
-                
-                <div class = "col-md-4">
->>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                     <div class = "dissidia" id="routing">
                         <h2 align = "center"> Routing </h2>
                         <p align = "center"> Routee will assist you in finding the best routes possible.</p>
@@ -340,29 +240,14 @@
                             </div>
 
                         </form>
-<<<<<<< HEAD
 
-=======
-                        <div class = "panel" id ="memonly">
->>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                         <hr class = "gdivider">
                         <p align = "center">If there is a situation going on, please do not hesitate to tell us.</p>
                         <div class="btn-group btn-group-justified">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-info" id = "btnReporting"><i class="fa fa-map-marker"> </i> Reporting</button>
-<<<<<<< HEAD
-                                <br/>
-                                <form method ="POST" id="regForm" action="register.php">
-                                    <button type="submit" class="btn btn-danger" id = "btnRegister"><i class ="fa fa-check"> </i> Sign in </button>
-                                </form>                           
                             </div>
                         </div>
-=======
-                            </div>
-                        </div>
-                        </div>
-
->>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                     </div> <!--dissidia routing-->
                     <br/>
                     <div class ="dissidia" style  = "display:none;" id = "reporting">
@@ -378,11 +263,8 @@
                                 <option value="Others">Others</option>
                             </select>
                             <br/>
-<<<<<<< HEAD
                             <input name="placeName" type="text" id = "eventSearchText" class="form-control" placeholder="Where is it happening?" >
                             <br/>
-=======
->>>>>>> f9e0624e4392a2158529991289fd21ed49a284eb
                             <textarea id="description" name="pDesc" style = "width:100%;" placeholder="What's going on?" class="form-control"></textarea>
                             <br/>                            
                             <div class="btn-group btn-group-justified">
