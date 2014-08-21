@@ -41,7 +41,7 @@ if ($_POST) {
     $mDate = filter_var($_POST["date"], FILTER_SANITIZE_STRING);
     $mDeleted = filter_var($_POST["deleted"], FILTER_SANITIZE_STRING);
 
-    $results = $mysqli->prepare("INSERT INTO markers (description, lat, lng, type, address, date, resolved) VALUES ('$mDesc',$mLat, $mLng, '$mType', '$mAddress', '$mDate', '$mDeleted')");
+    $results = $mysqli->prepare("INSERT INTO markers (description, lat, lng, type, Address, date, deleted) VALUES ('$mDesc',$mLat, $mLng, '$mType', '$mAddress', '$mDate', '$mDeleted')");
     $results->execute();
     // if (!$results) {
     //     header('HTTP/1.1 500 Error: Could not create marker!');
