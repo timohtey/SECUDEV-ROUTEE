@@ -3,6 +3,11 @@
 
 <?php
 
+function encode($string){
+	$string = base64_encode($string);
+	return $string;
+}
+
 $db_username = 'root';
 $db_password = '';
 $db_name = 'impassableareas';
@@ -18,6 +23,8 @@ if (mysqli_connect_errno()) {
 $username = mysqli_real_escape_string($con, $_POST['regUser']);
 $password = mysqli_real_escape_string($con, $_POST['regPass']);
 $email = mysqli_real_escape_string($con, $_POST['regMail']);
+
+$password = encode($password);
 
 $sql=$con->prepare("INSERT INTO users (username, password, email_address) VALUES ('$username', '$password', '$email')");
 $sql->execute();

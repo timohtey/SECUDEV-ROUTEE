@@ -3,6 +3,11 @@
 
 <?php
 
+function decode($string){
+	$string = base64_decode($string);
+	return $string;
+}
+
 	$db_username = 'root';
 	$db_password = '';
 	$db_name = 'impassableareas';
@@ -23,6 +28,8 @@
 			$password = mysqli_real_escape_string($con, $_POST['loginPass']);
 		}
 
+		$password = decode($password);
+
 		$query = "SELECT username, password FROM users";
 		if($stmt = $con->prepare($query)){
 			$stmt->execute();
@@ -30,7 +37,7 @@
 			$stmt->bind_result($username1, $password1);
 			while($stmt->fetch()){
 				if($username == $username1 && $password == $password1){
-					header('Login successful!');
+					echo 'Login successful!';
         			exit();
 				} 
 			}
