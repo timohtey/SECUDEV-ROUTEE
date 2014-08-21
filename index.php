@@ -48,42 +48,50 @@
         </script>
 
         <script>
-                
-            var geocoder;
-            geocoder = new google.maps.Geocoder();
 
-            var a; 
+            var a;
             var b;
             var address;
 
-            function getLocation() {
-                if (navigator.geolocation) {
-                    alert("pasok");
-                    navigator.geolocation.getCurrentPosition(showPosition1);
-                    navigator.geolocation.getCurrentPosition(showPosition2);
-                    var latlng = new google.maps.LatLng(a, b);
-                    geocoder.geocode({'latLng': event.latLng}, function(results, status) {
+            function requestCurrentPosition(){
+                if (navigator.geolocation)
+                {
+                  navigator.geolocation.getCurrentPosition(useGeoData);
+                }
+                else
+                {
+                 console.log("not avaliable");
+                }
+            }   
+            
+            function useGeoData(position){
+                a = position.coords.longitude;
+                b = position.coords.latitude;
+                document.getElementById('lat').value = b;
+                document.getElementById('lon').value = a;
+                populate();
+            }
+    
+
+
+            function populate()
+            {
+                var geocoder; 
+                geocoder = new google.maps.Geocoder();
+                var latlng = new google.maps.LatLng(b,a);
+                    geocoder.geocode({'latLng': latlng}, function(results, status) {
                         if (status === google.maps.GeocoderStatus.OK) {
-                            address = results[0].formatted_address;
+                            var address = results[0].formatted_address;
+                            $('#eventSearchText').val(address);
+                            console.log(address);
                         }
                         else {
                             alert("Geocoder failed due to: " + status);
                         }
-                    });
-                } 
+                    });           
 
-                else { 
-                    alert("Geolocation is not supported by this browser.");
-                }
-            }
+            } 
 
-            function showPosition1(position) {
-                x = position.coords.latitude;
-            }
-
-            function showPosition2(position) {
-                y = position.coords.longitude;    
-            }
 
             function initialize() {
 
@@ -301,6 +309,7 @@
                 LoginErrorHandlers();
                 ReportingErrorHandlers();
                 RoutingErrorHandlers();
+                requestCurrentPosition();
             };
 
         </script>
@@ -394,6 +403,9 @@
                                 <option value="Others">Others</option>
                             </select>
                             <br/>
+                            <input type = "hidden" id="eventSearchText" name ="eventSearchText" class = "form-control"/>
+                            <input type = "hidden" id= "lat" name = "lat"class = "form-control"/>
+                            <input type = "hidden" id= "lon" name = "lon" class = "form-control"/>
                             <textarea id="description" name="pDesc" style = "width:100%;" placeholder="What's going on?" class="form-control"></textarea>
                             <br/>                            
                             <div class="btn-group btn-group-justified">

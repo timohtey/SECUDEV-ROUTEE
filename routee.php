@@ -15,6 +15,8 @@
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDQFSdn0OTS5bgEVYvfGMBWmkC54uk-6PM&sensor=false&libraries=places"></script>        
 
         <?php
+        $lat = $_REQUEST['lat'];
+        $lon = $_REQUEST['lon'];
         try {
             if (!empty($_REQUEST['pType']) && !empty($_REQUEST['placeName']) && !empty($_REQUEST['pDesc'])) {
                 $type = $_REQUEST['pType'];
@@ -38,8 +40,15 @@
         }
         ?>
         <script>
+            var lat = '<?php echo $lat; ?>';
+            var lon = '<?php echo $lon; ?>';
+
+            function view(){
+            console.log(lat);
+            console.log(lon);
+            }
             var map;
-            var centerOfMap = new google.maps.LatLng(14.56486, 120.99370);
+            var centerOfMap = new google.maps.LatLng(lat, lon);
             var geocoder;
             var startLocation;
             var destinationLocation;
@@ -754,6 +763,7 @@
 
             }
             window.onload = function() {
+                view();
                 document.getElementById('findItButton').onclick = function() {
                     routeAddress();
                 };
