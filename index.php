@@ -21,6 +21,13 @@
         <script type="text/javascript" src="js/jquery.qtip.js"></script>
         <script type="text/javascript" src="js/jquery.imagesloaded.pkg.min.js"></script>
 
+        <script>
+        <?php
+            session_start();
+            echo "" . $_SESSION['username'];
+        ?>
+        </script>
+
         <script type="text/javascript">
             $(document).ready(function() {
                 $("#btnReporting").click(function() {
@@ -306,8 +313,6 @@
 
 
     <body>        
-
-
         <div class = "container">            
             <div class = "row">                
                 <div class = "col-md-4">
@@ -325,7 +330,14 @@
 
                 <div class = "col-md-4">
                     <div class = "dissidia" id="login">
-                        <h2 align = "center"> Welcome, Router! </h2>
+
+                        <h2 align = "center" id = "welcomeHeader"> Welcome, Router! </h2>
+                        <?php 
+                            if($_SESSION['username'] != null){
+                                echo $_SESSION['username'];
+                            }
+                        ?>
+
                         <p align = "center"> Please enter your username and password to be able to report! </p>
                         <br/>
                         <form method = "POST" id = "loginform" action = "loginController.php">

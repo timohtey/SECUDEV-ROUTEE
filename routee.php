@@ -15,6 +15,8 @@
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDQFSdn0OTS5bgEVYvfGMBWmkC54uk-6PM&sensor=false&libraries=places"></script>        
 
         <?php
+        session_start();
+
         $lat = $_REQUEST['lat'];
         $lon = $_REQUEST['lon'];
         try {

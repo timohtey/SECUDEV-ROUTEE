@@ -2,7 +2,8 @@
 <html>
 
 <?php
-
+	session_start();
+	echo $_SESSION['username'];
 	function decode($string){
 		$string = base64_decode($string);
 		return $string;
@@ -41,7 +42,9 @@
 			$stmt->bind_result($username1, $password1);
 			if($stmt->fetch()){
 				$loginSuccessful = true;
+				$_SESSION['username'] = $username;
 				echo 'Login successful!';
+				header('location: index.php');
 				exit();
 			} else {
 				echo 'Login unsuccessful!';
