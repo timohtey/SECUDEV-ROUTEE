@@ -331,7 +331,7 @@
                         <form method = "POST" id = "loginform" action = "index.php">
                             <input name ="loginUser" id = "loginUserText" type = "text" class = "form-control" placeholder = "Username">
                             <br/>
-                            <input name = "loginPass" id = "loginPassText" type = "text" class = "form-control" placeholder = "Password">
+                            <input name = "loginPass" id = "loginPassText" type = "password" class = "form-control" placeholder = "Password">
                             <br/>
                             <div class="btn-group btn-group-justified">
                             <div class="btn-group">
