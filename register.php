@@ -115,7 +115,7 @@
                     <br>
                     <p align = "center"> Please complete this form to proceed </p>
                     <br>
-                    <form method = "POST" id = "regform" action = "go.php">
+                    <form method = "POST" id = "regform" action = "registerController.php">
                         <input name ="regUser" id = "regUserText" type = "text" class = "form-control" placeholder = "Username">
                         <br/>
                         <input name = "regPass" id = "regPassText" type = "password" class = "form-control" placeholder = "Password">
