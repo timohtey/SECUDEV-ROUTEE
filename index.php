@@ -24,7 +24,7 @@
         <script>
         <?php
             session_start();
-            echo "" . $_SESSION['username'];
+            echo "" . isset($_SESSION['username']);
         ?>
         </script>
 
@@ -331,12 +331,11 @@
                 <div class = "col-md-4">
                     <div class = "dissidia" id="login">
 
-                        <h2 align = "center" id = "welcomeHeader"> Welcome, Router! </h2>
-                        <?php 
-                            if($_SESSION['username'] != null){
+                        <h2 align = "center" id = "welcomeHeader"> Welcome, Router <?php 
+                            if(isset($_SESSION['username']) != null && isset($_SESSION['username']) != ""){
                                 echo $_SESSION['username'];
                             }
-                        ?>
+                        ?>! </h2>
 
                         <p align = "center"> Please enter your username and password to be able to report! </p>
                         <br/>
@@ -355,6 +354,14 @@
                             <div class="btn-group btn-group-justified">
                             <div class="btn-group">
                                 <button type="submit" class="btn btn-primary" id = "btnRegister"><i class="fa fa-pencil"> </i> Register</button>
+                            </div>
+                        </div> <!-- end btn-group --> 
+                        </form>
+
+                        <form method = "POST" id = "logoutForm" action = "logoutController.php">
+                            <div class="btn-group btn-group-justified">
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-danger" id = "btnLogout"></i> Logout</button>
                             </div>
                         </div> <!-- end btn-group --> 
                         </form>
