@@ -26,12 +26,11 @@ if ($_POST) {
     $mLng = filter_var($mLatLang[1], FILTER_VALIDATE_FLOAT);
 
     if (isset($_POST["del"]) && $_POST["del"] == true) {
-        $results = $mysqli->prepare("UPDATE markers SET resolved='yes' WHERE lat=$mLat AND lng=$mLng");
-        $results->execute();
-        // if (!$results) {
-        //     header('HTTP/1.1 500 Error: Could not delete Markers!');
-        //     exit();
-        // }
+        $results = $mysqli->query("UPDATE markers SET deleted='yes' WHERE lat=$mLat AND lng=$mLng");
+        if (!$results) {
+            header('HTTP/1.1 500 Error: Could not delete Markers!');
+            exit();
+        }
         exit("Done!");
     }
 
@@ -41,12 +40,11 @@ if ($_POST) {
     $mDate = filter_var($_POST["date"], FILTER_SANITIZE_STRING);
     $mDeleted = filter_var($_POST["deleted"], FILTER_SANITIZE_STRING);
 
-    $results = $mysqli->prepare("INSERT INTO markers (description, lat, lng, type, Address, date, deleted) VALUES ('$mDesc',$mLat, $mLng, '$mType', '$mAddress', '$mDate', '$mDeleted')");
-    $results->execute();
-    // if (!$results) {
-    //     header('HTTP/1.1 500 Error: Could not create marker!');
-    //     exit();
-    // }
+    $results = $mysqli->query("INSERT INTO markers (description, lat, lng, type, address, date, deleted) VALUES ('$mDesc',$mLat, $mLng, '$mType', '$mAddress', '$mDate', '$mDeleted')");
+    if (!$results) {
+        header('HTTP/1.1 500 Error: Could not create marker!');
+        exit();
+    }
 
     $output = '<h3 class="marker-heading">' . $mType . '</h3><h6>' . $mDate. '</h6><p>' . $mAddress . '</p><hr><p>' . $mDesc .'</p>';
     exit($output);
@@ -57,12 +55,11 @@ $dom = new DOMDocument("1.0");
 $node = $dom->createElement("markers"); //Create new element node
 $parnode = $dom->appendChild($node); //make the node show up 
 // Select all the rows in the markers table
-$results = $mysqli->prepare("SELECT * FROM markers WHERE resolved = 'no'");
-$results->execute();
-// if (!$results) {
-//     header('HTTP/1.1 500 Error: Could not get markers!');
-//     exit();
-// }
+$results = $mysqli->query("SELECT * FROM markers WHERE 1");
+if (!$results) {
+    header('HTTP/1.1 500 Error: Could not get markers!');
+    exit();
+}
 
 //set document header to text/xml
 header("Content-type: text/xml");
