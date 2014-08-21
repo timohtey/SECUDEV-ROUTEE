@@ -249,12 +249,10 @@
             function LoginErrorHandlers() {
                 document.getElementById("loginform").onsubmit = function() {
                     if (document.getElementById("loginUserText").value === "" || document.getElementById("loginPassText").value === "") {
-                        if (document.getElementById("loginUserText").value === "")
-                        {
-                            $('#loginUserText').qtip({
+                        $('#loginUserText').qtip({
                                 prerender: true,
                                 content: {
-                                    text: "Please enter username."
+                                    text: "Invalid username or password."
                                 },
                                 position: {
                                     my: 'bottom right',
@@ -270,36 +268,10 @@
                                     inactive: 4000
                                 }
 
-                            });
-                        }
-
-                        if (document.getElementById("loginPassText").value === "")
-                        {
-                            $('#loginPassText').qtip({
-                                prerender: true,
-                                content: {
-                                    text: "Please enter password"
-                                },
-                                position: {
-                                    my: 'bottom right',
-                                    at: 'top left',
-                                    target: $('#loginPassText'),
-                                    viewport: $(window)
-                                },
-                                show: {
-                                    ready: true
-                                },
-                                hide: {
-                                    event: false,
-                                    inactive: 4000
-                                }
-
-                            });
-                        }
+                        });
                         return false;
                     }
                 };
-
             }
             google.maps.event.addDomListener(window, 'load', initialize);
             window.onload = function() {

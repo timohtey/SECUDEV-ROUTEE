@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <?php
@@ -19,11 +19,11 @@ $username = mysqli_real_escape_string($con, $_POST['regUser']);
 $password = mysqli_real_escape_string($con, $_POST['regPass']);
 $email = mysqli_real_escape_string($con, $_POST['regMail']);
 
-$sql="INSERT INTO users (username, password, email_address) VALUES ('$username', '$password', '$email')";
-
-if (!mysqli_query($con,$sql)) {
-  die('Error: ' . mysqli_error($con));
-}
+$sql=$con->prepare("INSERT INTO users (username, password, email_address) VALUES ('$username', '$password', '$email')");
+$sql->execute();
+// if (!mysqli_query($con,$sql)) {
+//   die('Error: ' . mysqli_error($con));
+// }
 
 mysqli_close($con);
 

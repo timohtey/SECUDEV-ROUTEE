@@ -37,9 +37,9 @@
                 alert(re.test(email));
                 document.getElementById("regform").onsubmit = function() {
 
-                    if (document.getElementById("regUserText").value === "")
+                    if (document.getElementById("regUserTexf").value === "")
                         {
-                            $('#regUserText').qtip({
+                            $('#regUserTexf').qtip({
                                 prerender: true,
                                 content: {
                                     text: "Please enter a username."
@@ -115,7 +115,7 @@
                     <br>
                     <p align = "center"> Please complete this form to proceed </p>
                     <br>
-                    <form method = "POST" id = "regform" action = "index.php">
+                    <form method = "POST" id = "regform" action = "go.php">
                         <input name ="regUser" id = "regUserText" type = "text" class = "form-control" placeholder = "Username">
                         <br/>
                         <input name = "regPass" id = "regPassText" type = "password" class = "form-control" placeholder = "Password">
