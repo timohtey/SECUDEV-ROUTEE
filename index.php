@@ -97,7 +97,7 @@
 
                 var sourceInput = document.getElementById('sourceSearchText');
                 var destinationInput = document.getElementById('destinationSearchText');
-                var eventInput = address;
+                var eventInput = document.getElementById('eventSearchText');
                 var options = {
                     componentRestrictions: {country: "ph"}
                 };
