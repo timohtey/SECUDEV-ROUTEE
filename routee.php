@@ -17,8 +17,8 @@
         <?php
         session_start();
 
-        $lat = $_REQUEST['lat'];
-        $lon = $_REQUEST['lon'];
+        $lat = isset($_REQUEST['lat']);
+        $lon = isset($_REQUEST['lon']);
         try {
             if (!empty($_REQUEST['pType']) && !empty($_REQUEST['placeName']) && !empty($_REQUEST['pDesc'])) {
                 $type = $_REQUEST['pType'];
