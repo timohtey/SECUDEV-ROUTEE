@@ -328,7 +328,7 @@
                         <h2 align = "center"> Welcome, Router! </h2>
                         <p align = "center"> Please enter your username and password to be able to report! </p>
                         <br/>
-                        <form method = "POST" id = "loginform" action = "index.php">
+                        <form method = "POST" id = "loginform" action = "loginController.php">
                             <input name ="loginUser" id = "loginUserText" type = "text" class = "form-control" placeholder = "Username">
                             <br/>
                             <input name = "loginPass" id = "loginPassText" type = "password" class = "form-control" placeholder = "Password">

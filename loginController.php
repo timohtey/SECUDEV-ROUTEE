@@ -3,10 +3,15 @@
 
 <?php
 
-function decode($string){
-	$string = base64_decode($string);
-	return $string;
-}
+	function decode($string){
+		$string = base64_decode($string);
+		return $string;
+	}
+
+	function encode($string){
+		$string = base64_encode($string);
+		return $string;
+	}
 
 	$db_username = 'root';
 	$db_password = '';
@@ -27,23 +32,23 @@ function decode($string){
 	    if(isset($_POST["loginPass"])){
 			$password = mysqli_real_escape_string($con, $_POST['loginPass']);
 		}
-
-		$query = "SELECT username, password FROM users";
+		$loginSuccessful = false;
+		$password = encode($password);
+		$query = "SELECT username, password FROM users WHERE username = '$username' AND password = '$password'";
 		if($stmt = $con->prepare($query)){
 			$stmt->execute();
 
 			$stmt->bind_result($username1, $password1);
-			while($stmt->fetch()){
-				$password1 = decode($password1);
-				if($username == $username1 && $password == $password1){
-					echo 'Login successful!';
-        			// exit();
-				} 
+			if($stmt->fetch()){
+				$loginSuccessful = true;
+				echo 'Login successful!';
+				exit();
+			} else {
+				echo 'Login unsuccessful!';
 			}
 			$stmt->close();
 		}
 		mysqli_close($con);
-		header('HTTP/1.1 500 Error:Login not successful!');
 		exit();
 	}
 ?>
