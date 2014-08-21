@@ -180,29 +180,6 @@
                         }
                     });
                 });
-                //Right Click to Drop a New Marker
-                google.maps.event.addListener(map, 'click', function(event) {
-
-                    geocoder.geocode({'latLng': event.latLng}, function(results, status) {
-                        if (status === google.maps.GeocoderStatus.OK) {
-                            var address = results[0].formatted_address;
-                        }
-                        else {
-                            alert("Geocoder failed due to: " + status);
-                        }
-                        //form to be displayed with new marker
-                        var Report_Form = '<p><div class="marker-edit">' +
-                                '<form action="ajax-save.php" method="POST" name="SaveMarker" id="SaveMarker">' +
-                                '<label for="pAddress"><span>Address :</span> <textarea disabled name="address_ta" class="save-add" maxlength="200" placeholder= "Address">' + address + '</textarea></label>' +
-                                '<label for="pType"><span>Area Type :</span> <select name="pType" class="save-type"><option value="Accident">Accident</option><option value="Flood">Flood</option>' +
-                                '<option value="Construction">Construction</option><option value="Heavy Traffic">Heavy Traffic</option><option value="Others">Others</option></select></label>' +
-                                '<label for="pDesc"><span>What Happened here ?</span><textarea name="pDesc" class="save-desc" placeholder="Enter Details" maxlength="200"></textarea></label>' +
-                                '</form>' +
-                                '</div></p><button name="save-marker" class="save-marker">Save Report!</button>';
-
-                        add_marker(event.latLng, 'Report Area', Report_Form, true, false, true, "");
-                    });
-                });
 
                 // -------------- AUTCOMPLETE ----------------------//
                 var sourceInput = document.getElementById('sourceTextBox');
