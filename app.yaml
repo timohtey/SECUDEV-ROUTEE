@@ -1,4 +1,4 @@
-application: routee
+application: routee-secudev
 version: 1
 runtime: php
 api_version: 1
@@ -23,6 +23,12 @@ handlers:
 
 - url: /js
   static_dir: js  
+
+- url: /routee\.php
+  script: routee.php
+
+- url: /index\.php
+  script: index.php
 
 - url: .*
   script: index.php
