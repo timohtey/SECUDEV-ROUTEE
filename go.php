@@ -1,8 +1,11 @@
+<<!DOCTYPE html>
+<html>
+
 <?php
 
 $db_username = 'root';
 $db_password = '';
-$db_name = 'routee';
+$db_name = 'impassableareas';
 $db_host = 'localhost';
 
 $con= mysqli_connect($db_host, $db_username, $db_password, $db_name);
@@ -21,8 +24,17 @@ $sql="INSERT INTO users (username, password, email_address) VALUES ('$username',
 if (!mysqli_query($con,$sql)) {
   die('Error: ' . mysqli_error($con));
 }
-echo "1 record added";
 
 mysqli_close($con);
 
 ?>
+
+<script>
+
+window.location = "index.php";
+
+</script>
+<body>
+
+</body>
+</html>
