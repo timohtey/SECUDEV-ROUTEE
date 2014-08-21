@@ -132,10 +132,6 @@
 
                 setupClickListener('changetype-all', []);
             }
-            google.maps.event.addDomListener(window, 'load', initialize);
-        </script>        
-
-        <script>
 
             function ReportingErrorHandlers() {
                 document.getElementById("reportForm").onsubmit = function() {
@@ -305,6 +301,7 @@
                 };
 
             }
+            google.maps.event.addDomListener(window, 'load', initialize);
             window.onload = function() {
                 LoginErrorHandlers();
                 ReportingErrorHandlers();
