@@ -24,6 +24,24 @@ handlers:
 - url: /js
   static_dir: js  
 
+- url: /dbControl\.php
+  script: dbControl.php
+
+- url: /encrypt\.php
+  script: encrypt.php
+
+- url: /loginController\.php
+  script: loginController.php
+
+- url: /logoutController\.php
+  script: logoutController.php
+
+- url: /register\.php
+  script: register.php
+
+- url: /registerController\.php
+  script: registerController.php
+
 - url: /routee\.php
   script: routee.php
 
