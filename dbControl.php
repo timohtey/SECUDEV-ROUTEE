@@ -1,9 +1,9 @@
 <?php
 
 // database settings 
-$db_username = '403208';
-$db_password = 'webapps123';
-$db_name = '403208';
+$db_username = 'root';
+$db_password = '';
+$db_name = 'impassableareas';
 $db_host = 'localhost';
 
 //mysqli
