@@ -408,9 +408,10 @@
                                 <option value="Others">Others</option>
                             </select>
                             <br/>
-                            <input type = "hidden" id="eventSearchText" name ="placeName" class = "form-control"/>
-                            <input type = "text" id= "lat" name = "lat"class = "form-control"/>
-                            <input type = "text" id= "lon" name = "lon" class = "form-control"/>
+                            <input type = "text" id="eventSearchText" name ="placeName" class = "form-control" readonly="true" />
+                            <br/>
+                            <input type = "hidden" id= "lat" name = "lat"class = "form-control"/>
+                            <input type = "hidden" id= "lon" name = "lon" class = "form-control"/>
                             <textarea id="description" name="pDesc" style = "width:100%;" placeholder="What's going on?" class="form-control"></textarea>
                             <br/>                            
                             <div class="btn-group btn-group-justified">
