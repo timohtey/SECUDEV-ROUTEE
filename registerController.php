@@ -36,7 +36,7 @@ if($sql->fetch()){
 	echo "USER ALREADY EXISTS";
 } 
 
-$sql=$con->prepare("SELECT email FROM users WHERE email_address='$email'");
+$sql=$con->prepare("SELECT email_address FROM users WHERE email_address='$email'");
 $sql->execute();
 
 if($sql->fetch()){
