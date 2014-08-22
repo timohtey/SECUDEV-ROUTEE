@@ -43,11 +43,12 @@
 			if($stmt->fetch()){
 				$loginSuccessful = true;
 				$_SESSION['username'] = $username;
-				echo 'Login successful!';
+				echo "<script type='text/javascript'>alert('Login successful!');</script>";
 				header('location: index.php');
 				exit();
 			} else {
-				echo 'Login unsuccessful!';
+				echo "<script type='text/javascript'>alert('Invalid username/password');</script>";
+				header('location: index.php');
 			}
 			$stmt->close();
 		}

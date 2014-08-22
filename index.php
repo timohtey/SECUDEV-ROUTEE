@@ -24,11 +24,13 @@
         <script>
         <?php
             session_start();
-            echo "" . isset($_SESSION['username']);
+            echo ''. isset($_SESSION['username']);
         ?>
         </script>
 
         <script type="text/javascript">
+        var sStr = '<?php echo isset($_SESSION['username']); ?>';
+
             $(document).ready(function() {
                 $("#btnReporting").click(function() {
                     $("#routing").fadeOut("fast", function() {
@@ -47,10 +49,14 @@
         </script>
 
         <script>
-
+            var username = '<?php echo isset($_SESSION['username']); ?>';
+            console.log(username);
             var a;
             var b;
             var address;
+
+            var rememberme = 'y';
+            
 
             function requestCurrentPosition(){
                 if (navigator.geolocation)
@@ -93,7 +99,7 @@
 
 
             function initialize() {
-
+                
                 var sourceInput = document.getElementById('sourceSearchText');
                 var destinationInput = document.getElementById('destinationSearchText');
                 var eventInput = document.getElementById('eventSearchText');
@@ -341,7 +347,7 @@
                             }
                         ?>! </h2>
 
-                        <p align = "center"> Please enter your username and password to be able to report! </p>
+                        <p align = "center" id = "logMes"> Please enter your username and password to be able to report! </p>
                         <br/>
                         <form method = "POST" id = "loginform" action = "loginController.php">
                             <input name ="loginUser" id = "loginUserText" type = "text" class = "form-control" placeholder = "Username">
@@ -442,6 +448,26 @@
                 <br/>
             </div> <!-- row end -->
         </div> <!-- container-end -->        
+
+<script>
+        if(sStr == '')
+        {
+            document.getElementById('memonly').style.display = "none";
+            document.getElementById('registerform').style.display = "block";   
+            document.getElementById('loginform').style.display = "block";
+            document.getElementById('logoutForm').style.display = "none";     
+            document.getElementById('logMes').innerHTML =  "Please enter your username and password to be able to report!" ;      
+        }
+        else
+        {
+            document.getElementById('memonly').style.display = "block";   
+            document.getElementById('registerform').style.display = "none";
+            document.getElementById('loginform').style.display = "none"; 
+            document.getElementById('logMes').innerHTML =  "You are now logged in. Have fun contributing!" ;       
+        }
+</script>
+
+
     </body>
 
 

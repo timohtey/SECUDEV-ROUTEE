@@ -33,7 +33,8 @@ $sql->execute();
 
 if($sql->fetch()){
 	$userExists = true;
-	echo "USER ALREADY EXISTS";
+	echo "<script type='text/javascript'>alert('User already exists!');</script>";
+	header('location:register.php');
 } 
 
 $sql=$con->prepare("SELECT email_address FROM users WHERE email_address='$email'");
@@ -41,7 +42,8 @@ $sql->execute();
 
 if($sql->fetch()){
 	$emailExists = true;
-	echo "THAT EMAIL EXISTS";
+	echo "<script type='text/javascript'>alert('Email address already exists!');</script>";
+	header('location:register.php');
 }
 
 
@@ -51,6 +53,7 @@ if($userExists == false || $emailExists == false){
 	// if (!mysqli_query($con,$sql)) {
 	//   die('Error: ' . mysqli_error($con));
 	// }
+
 	header('location:index.php');
 	exit();
 } 
