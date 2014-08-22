@@ -86,7 +86,7 @@
                         return false;
                     }
                 };
-            }
+            
 
             // function validateEmail() {
             //     var email = $(document).getElementById('regMailText');
@@ -97,6 +97,7 @@
             window.onload = function() {
                 RegistrationErrorHandlers();
             };
+            
     </script>
 
     </head>
