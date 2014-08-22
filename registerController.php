@@ -46,8 +46,7 @@ if($sql->fetch()){
 	header('location:register.php');
 }
 
-
-if($userExists == false || $emailExists == false){
+if($userExists == false && $emailExists == false){
 	$sql=$con->prepare("INSERT INTO users (username, password, email_address) VALUES ('$username', '$password', '$email')");
 	$sql->execute();
 	// if (!mysqli_query($con,$sql)) {
@@ -56,8 +55,7 @@ if($userExists == false || $emailExists == false){
 
 	header('location:index.php');
 	exit();
-} 
-
+}  
 mysqli_close($con);
 ?>
 
