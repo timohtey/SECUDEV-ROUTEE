@@ -1,5 +1,9 @@
 <?php
 
+start_session();
+if(isset($_SESSION['username'])){
+    $username = $_SESSION['username'];
+}
 // database settings 
 $db_username = 'root';
 $db_password = '';
@@ -40,7 +44,7 @@ if ($_POST) {
     $mDate = filter_var($_POST["date"], FILTER_SANITIZE_STRING);
     $mDeleted = filter_var($_POST["deleted"], FILTER_SANITIZE_STRING);
 
-    $results = $mysqli->query("INSERT INTO markers (description, lat, lng, type, address, date, deleted) VALUES ('$mDesc',$mLat, $mLng, '$mType', '$mAddress', '$mDate', '$mDeleted')");
+    $results = $mysqli->query("INSERT INTO markers (description, lat, lng, type, address, date, deleted,reported_by) VALUES ('$mDesc',$mLat, $mLng, '$mType', '$mAddress', '$mDate', '$mDeleted', '$username')");
     if (!$results) {
         header('HTTP/1.1 500 Error: Could not create marker!');
         exit();
@@ -75,6 +79,7 @@ while ($obj = $results->fetch_object()) {
     $newnode->setAttribute("Address", $obj->Address);
     $newnode->setAttribute("date", $obj->date);
     $newnode->setAttribute("deleted", $obj->deleted);
+    $newnode->setAttribute("username". $obj->username);
 }
 echo $dom->saveXML();
 ?>
