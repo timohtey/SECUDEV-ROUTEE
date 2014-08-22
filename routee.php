@@ -153,7 +153,6 @@
 
                     });
                 }
-                
                 //Get the existing points
                 $.get("dbControl.php", function(data) {
                     $(data).find("marker").each(function() {
