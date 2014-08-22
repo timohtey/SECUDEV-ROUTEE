@@ -245,13 +245,73 @@
                 };
 
             }
+            function LoginErrorHandlers() {
+                document.getElementById("loginform").onsubmit = function() {
+                    if (document.getElementById("loginUserText").value === "" || document.getElementById("loginPassText").value === "") {
+                        $('#loginUserText').qtip({
+                                prerender: true,
+                                content: {
+                                    text: "Invalid username or password."
+                                },
+                                position: {
+                                    my: 'bottom right',
+                                    at: 'top left',
+                                    target: $('#loginUserText'),
+                                    viewport: $(window)
+                                },
+                                show: {
+                                    ready: true
+                                },
+                                hide: {
+                                    event: false,
+                                    inactive: 4000
+                                }
+
+                        });
+                        return false;
+                    } else {
+                        $.ajax({
+                            type: "POST",
+                            url: "loginController.php",
+                            data: myData,
+                            success: function(data) {
+                                alert("Login successful!");
+                            },
+                            error: function(xhr, ajaxOptions, thrownError) {
+                                $('#loginUserText').qtip({
+                                    prerender: true,
+                                    content: {
+                                        text: "Invalid username or password."
+                                    },
+                                    position: {
+                                        my: 'bottom right',
+                                        at: 'top left',
+                                        target: $('#loginUserText'),
+                                        viewport: $(window)
+                                    },
+                                    show: {
+                                        ready: true
+                                    },
+                                    hide: {
+                                        event: false,
+                                        inactive: 4000
+                                    }
+                                });
+                            }
+                });
+            }
+
+        }
+
+    }
+            google.maps.event.addDomListener(window, 'load', initialize);
             window.onload = function() {
+                LoginErrorHandlers();
                 ReportingErrorHandlers();
                 RoutingErrorHandlers();
                 requestCurrentPosition();
             };
-            
-            // google.maps.event.addDomListener(window, 'load', initialize);
+
         </script>
     </head>
 
